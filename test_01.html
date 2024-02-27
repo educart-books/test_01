@@ -29,7 +29,7 @@
             const gmailId = formData.get("gmailId");
             const phoneNumber = formData.get("phoneNumber");
             
-            const url = "https://docs.google.com/spreadsheets/d/1QBYrfZfPWRHfjFBrzAq1tfU11Oing_Z72-AUXS2P-m8/edit#gid=0";
+            const url = "https://script.google.com/macros/s/AKfycbwsgbaWG1ECjdvO5hiImeEZmnlpHpc9ieGCN1l6S9RhvK3vj_Mi9RnXN4E7aopFAq9S/exec";
             const params = `gmailId=${encodeURIComponent(gmailId)}&phoneNumber=${encodeURIComponent(phoneNumber)}`;
             const xhr = new XMLHttpRequest();
             xhr.open("GET", `${url}?${params}`, true);
