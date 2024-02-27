@@ -6,7 +6,7 @@
     <title>Form to Submit Data to Google Sheets</title>
 </head>
 <body>
-    <h1 style = "color:red;">Submit Your Information</h1>
+    <h1 style = "color:blue;">Submit Your Information</h1>
     <form id="myForm">
         <label for="gmailId">Gmail ID:</label>
         <input type="text" id="gmailId" name="gmailId"><br><br>
@@ -29,7 +29,7 @@
             const gmailId = formData.get("gmailId");
             const phoneNumber = formData.get("phoneNumber");
             
-            const url = "https://script.google.com/macros/s/AKfycbzjxgGUs-Y9mC7XZvycHGO5fnX7VbK6j60GcRStfz3x/exec";
+            const url = "https://docs.google.com/spreadsheets/d/1QBYrfZfPWRHfjFBrzAq1tfU11Oing_Z72-AUXS2P-m8/edit#gid=0";
             const params = `gmailId=${encodeURIComponent(gmailId)}&phoneNumber=${encodeURIComponent(phoneNumber)}`;
             const xhr = new XMLHttpRequest();
             xhr.open("GET", `${url}?${params}`, true);
