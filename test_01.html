@@ -3,16 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple HTML Page</title>
+    <title>Form to Submit Data to Google Sheets</title>
 </head>
 <body>
-    <h1 style="color:red;">Welcome to My Website</h1>
-    <p>This is a simple HTML page created with Python.</p>
-    <h2>My Favorite Fruits:</h2>
-    <ul>
-        <li>Apple</li>
-        <li>Banana</li>
-        <li>Orange</li>
-    </ul>
+    <h1>Submit Your Information</h1>
+    <form id="myForm">
+        <label for="gmailId">Gmail ID:</label>
+        <input type="text" id="gmailId" name="gmailId"><br><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber"><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            const formData = new FormData(document.getElementById("myForm"));
+            const gmailId = formData.get("gmailId");
+            const phoneNumber = formData.get("phoneNumber");
+            
+            const url = "https://script.google.com/macros/s/YourGoogleAppsScriptURL/exec";
+            const params = `gmailId=${encodeURIComponent(gmailId)}&phoneNumber=${encodeURIComponent(phoneNumber)}`;
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", `${url}?${params}`, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert("Data submitted successfully!");
+                    document.getElementById("myForm").reset();
+                }
+            };
+            xhr.send();
+        }
+    </script>
 </body>
 </html>
