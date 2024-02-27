@@ -4,18 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form to Submit Data to Google Sheets</title>
+    <style>
+        body {
+            background-image: url('background_image.jpg'); /* Change 'background_image.jpg' to the path of your background image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #formContainer {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1 style = "color:blue;">Submit Your Information</h1>
-    <form id="myForm">
-        <label for="gmailId">Gmail ID:</label>
-        <input type="text" id="gmailId" name="gmailId"><br><br>
+    <div id="formContainer">
+        <h1>Submit Your Information</h1>
+        <form id="myForm">
+            <label for="gmailId">Gmail ID:</label><br>
+            <input type="text" id="gmailId" name="gmailId"><br>
 
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" name="phoneNumber"><br><br>
+            <label for="phoneNumber">Phone Number:</label><br>
+            <input type="text" id="phoneNumber" name="phoneNumber"><br>
 
-        <input type="submit" value="Submit">
-    </form>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <script>
         document.getElementById("myForm").onsubmit = function(e) {
